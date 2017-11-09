@@ -1,7 +1,7 @@
 # draw_together_app
 Collaborative Canvas App
 
-Technologies used:
+Technologies used:<br>
 Node<br>
 Express<br>
 JQuery<br>
