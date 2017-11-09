@@ -2,10 +2,10 @@
 Collaborative Canvas App
 
 Technologies used:
-Node\n
-Express\n
-JQuery\n
-JavaScript\n
-HTML5\n
-CSS3\n
+Node<br>
+Express<br>
+JQuery<br>
+JavaScript<br>
+HTML5<br>
+CSS3<br>
 Socket-IO
