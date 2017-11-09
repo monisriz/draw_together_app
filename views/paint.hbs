@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Draw Together</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+          <canvas class="drawingBoard" width="1000px" height="700px"></canvas>
+
+        <div class="col optionsPane">
+          <div class="row colorPick">
+            <div class="optionsImg">
+              <img src="../static/palette.png" alt="Pen color" width="10%">
+            </div>
+            <input class="color no-alpha currentColor form-control" placeholder="Color" readonly>
+          </div>
+
+          <div class="row penSizeSlider">
+            <div class="optionsImg">
+              <img src="../static/brush.png" alt="Pen color" width="10%">
+            </div>
+
+            <div id="slidecontainer">
+              <input class="form-control currentPen" id="penSize" readonly>
+              <input type="range" min="1" max="40" value="1" placeholder="Brush width: 1" class="slider" id="myRange">
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row footer" style="text-align:center;">
+        <h2>D r a w - T o g e t h e r</h2>
+      </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="/socket-io/socket.io.js"></script>
+    <script src="../static/frontend.js"></script>
+    <script src="../static/jqColorPicker.min.js"></script>
+
+    <script type="text/javascript">
+        $('.color').colorPicker(
+          {animationSpeed: 50}
+        );
+    </script>
+
+    <script type="text/javascript">
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("penSize");
+      output.value = "Pen size: " + slider.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider.oninput = function() {
+        output.value = "Pen size: " + this.value;
+      }
+    </script>
+
+    <script type="text/javascript">
+      $('#penSize').click(function(){
+        $('#myRange').toggle();
+      });
+    </script>
+
+    <!-- <script type="text/javascript">
+
+      var count = 0;
+        $('.color').click(function(){
+          count += 1
+          if (count > 1){
+          $('.cp-color-picker').toggleClass('hidden');}
+        });
+    </script> -->
+
+  </body>
+</html>
