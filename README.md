@@ -1,5 +1,5 @@
 # draw_together_app
-Collaborative Canvas App
+<strong>Collaborative Canvas App</strong>
 
 Technologies used:<br>
 NodeJS<br>
